@@ -1,0 +1,13 @@
+---
+title: "Spellcheck Example"
+format: typst
+filters:
+  - spellcheck
+spellcheck-lang: en_US
+spellcheck-ignore:
+  - ignoreme
+---
+
+## Heading
+
+This filter prints a spellcheck to the consol. Words that are not spelld correctly will be listd. Words that are listed in the ignore, like ignoreme, are skipped. Note that ignoreme does not print to the console.

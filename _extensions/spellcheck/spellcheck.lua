@@ -61,6 +61,15 @@ local function get_deflang(meta)
 end
 
 local function run_spellcheck(lang)
+
+  -- Check if Hunspell is installed before proceeding
+  local status = os.execute('hunspell -v > /dev/null 2>&1')
+  if status ~= 0 then
+    print("Warning: Hunspell is not installed. Skipping spell check for '" .. lang .. "'.")
+    return -- Gracefully skip spell checking if Hunspell is not available
+  end
+
+  -- Prepare list of collected words for Hunspell
   local keys = {}
   local wordlist = words[lang]
 
